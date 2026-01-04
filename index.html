@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light" data-alert="none">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Tiempo | Estado Embalses y Tiempo 2026</title>
+    <meta name="description" content="Monitorización en tiempo real de los pantanos de Málaga y meteorología de sus municipios. Datos actualizados de capacidad hídrica.">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="gradient-bg">
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+        </div>
+    </div>
+
+    <nav class="pro-nav">
+        <div class="container nav-flex">
+            <h1 class="brand">EL<span>TIEMPO</span></h1>
+            <div class="nav-controls">
+                <select onchange="updateAlert(this.value)" class="glass-select">
+                    <option value="none">🟢 Estado Normal</option>
+                    <option value="amarilla">🟡 Aviso Amarillo</option>
+                    <option value="naranja">🟠 Aviso Naranja</option>
+                    <option value="roja">🔴 ALERTA ROJA</option>
+                </select>
+                <button id="theme-toggle" class="btn-theme"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container content-wrapper">
+        <header class="hero-header">
+            <p id="current-date">Domingo, 4 de enero de 2026</p>
+            <h2>Panel de Control Hidro-Climático</h2>
+        </header>
+
+        <section id="map-section">
+            <div id="map"></div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="column">
+                <h3 class="label"><i class="fas fa-droplet"></i> Reservas en Pantanos</h3>
+                <div id="pantanos-grid" class="cards-stack"></div>
+            </section>
+
+            <section class="column">
+                <h3 class="label"><i class="fas fa-wind"></i> Municipios Málaga</h3>
+                <div id="municipios-grid" class="cards-stack"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="container footer">
+        <p>&copy; Datos simulados basados en proyecciones 2026 para fines demostrativos. Fuente: SAIH Hidrosur / AEMET.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
